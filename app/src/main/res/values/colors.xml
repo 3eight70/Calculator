@@ -7,4 +7,11 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="app_background">"#E5E5E5"</color>
+    <color name="buttonBackground">#4A4458</color>
+    <color name="buttonBackgroundRed">#633B48</color>
+    <color name="input">#D0BCFF</color>
+    <color name="inputError">#F2B8B5</color>
+    <color name="calculator">#E6E1E5</color>
+    <color name="text">#E8DEF8</color>
 </resources>
