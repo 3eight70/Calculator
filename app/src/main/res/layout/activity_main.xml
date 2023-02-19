@@ -9,21 +9,7 @@
 
     <include
         android:id="@+id/allButtons"
-        layout="@layout/buttons"
-        />
-
-    <include
-        android:id="@+id/buttonsExpressions"
-        layout="@layout/button_expressions"
-
-        />
-
-    <TextView
-        android:layout_width="380dp"
-        android:layout_height="36dp"
-        android:fontFamily="sans-serif"
-        android:textColor="@color/calculator"
-        android:text="Calculator" />
+        layout="@layout/buttons" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
