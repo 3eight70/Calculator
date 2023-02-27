@@ -72,7 +72,14 @@ class Calculate {
                 commaInCurNumber=true
                 return curNumber
             }
+            else if (curNumber.length>0 && commaInCurNumber==false && symbol=='0' && curNumber.first()=='0'){
+                return curNumber
+            }
             else if (symbol !in signs && symbol!='%' && symbol!=','){
+                if (curNumber.length>0 && curNumber.first()=='0'){
+                    curNumber=symbol.toString()
+                    return curNumber
+                }
                 curNumber += symbol
                 return curNumber
             }
@@ -92,7 +99,14 @@ class Calculate {
                 commaInNewNumber=true
                 return curNumber+newNumber
             }
+            else if (newNumber.length>0 && commaInNewNumber==false && symbol=='0' && newNumber.first()=='0'){
+                return curNumber+newNumber
+            }
             else if (symbol!=',') {
+                if (newNumber.length>0 && newNumber.first()=='0'){
+                    newNumber=symbol.toString()
+                    return curNumber+newNumber
+                }
                 newNumber += symbol
                 return curNumber + newNumber
             }
@@ -142,6 +156,7 @@ class Calculate {
 
         newNumber=""
         commaInNewNumber=false
+        commaInCurNumber=true
         curNumber=checkError(answer)
         return curNumber
     }
