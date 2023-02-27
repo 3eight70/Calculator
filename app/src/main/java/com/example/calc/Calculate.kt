@@ -103,7 +103,7 @@ class Calculate {
                 return curNumber+newNumber
             }
             else if (symbol!=',') {
-                if (newNumber.length>0 && newNumber.first()=='0'){
+                if (newNumber.length>0 && newNumber.first()=='0' && commaInNewNumber==false){
                     newNumber=symbol.toString()
                     return curNumber+newNumber
                 }
