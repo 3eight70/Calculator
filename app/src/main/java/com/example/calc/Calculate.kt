@@ -76,7 +76,7 @@ class Calculate {
                 return curNumber
             }
             else if (symbol !in signs && symbol!='%' && symbol!=','){
-                if (curNumber.length>0 && curNumber.first()=='0'){
+                if (curNumber.length>0 && curNumber.first()=='0' && commaInCurNumber==false){
                     curNumber=symbol.toString()
                     return curNumber
                 }
