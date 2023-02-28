@@ -194,7 +194,6 @@ class Calculate {
             else{
                 curNumber=curNumber.substring(1,curNumber.length)
             }
-            curNumber='-'+curNumber
             return curNumber
         }
     }
