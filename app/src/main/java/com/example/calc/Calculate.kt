@@ -45,8 +45,24 @@ class Calculate {
     }
 
     fun addSymbol(symbol:Char): String{
-        if ("Error" in curNumber){
+        if ("Error" in curNumber || symbol=='~'){
             clear()
+            return curNumber
+        }
+
+        else if (symbol=='B'){
+            removeLastChar()
+            return curNumber
+        }
+
+        else if (symbol == '±'){
+            changeSign()
+            return curNumber
+        }
+
+        else if (symbol=='='){
+            equal()
+            return curNumber
         }
 
         if (curNumber.isNotEmpty() && (curNumber[curNumber.length-1] in signs || curNumber[curNumber.length-1]=='%') && (symbol in signs || symbol=='%') && newNumber.isEmpty()){
