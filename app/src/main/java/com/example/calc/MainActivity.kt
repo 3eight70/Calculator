@@ -29,7 +29,7 @@ class MainActivity : AppCompatActivity() {
         PLUS('+'),
         MINUS('-'),
         MULTIPLICATION('×'),
-        DIVIDE('%'),
+        DIVIDE('÷'),
         PERCENT('%'),
         COMMA(','),
         AC('~'),
@@ -46,14 +46,15 @@ class MainActivity : AppCompatActivity() {
         var binding=ActivityMainBinding.inflate(layoutInflater)
         val normalColor= ContextCompat.getColor(this, R.color.input)
         val errorColor=ContextCompat.getColor(this, R.color.inputError)
+        val error="Error"
 
         val view = binding.root
         setContentView(view)
 
-        val numberButtons = listOf(binding.buttonZero, binding.buttonOne, binding.buttonTwo,binding.buttonThree,binding.buttonFour,binding.buttonFive,binding.buttonSix,binding.buttonSeven,binding.buttonEight, binding.buttonNine)
-        numberButtons.forEachIndexed { index, button ->
+        val numberButtons = mapOf(binding.buttonZero to Action.ZERO.symbol, binding.buttonOne to Action.ONE.symbol, binding.buttonTwo to Action.TWO.symbol,binding.buttonThree to Action.THREE.symbol,binding.buttonFour to Action.FOUR.symbol,binding.buttonFive to Action.FIVE.symbol,binding.buttonSix to Action.SIX.symbol,binding.buttonSeven to Action.SEVEN.symbol,binding.buttonEight to Action.EIGHT.symbol, binding.buttonNine to Action.NINE.symbol)
+        numberButtons.forEach { (button, number) ->
             button.setOnClickListener() {
-                binding.input.text=calculate.addSymbol(index.toString().toCharArray()[0])
+                binding.input.text=calculate.addSymbol(number)
                 binding.input.setTextColor(normalColor)
             }
         }
@@ -65,7 +66,7 @@ class MainActivity : AppCompatActivity() {
                 try {
                     if (binding.input.text.isNotEmpty() && binding.input.text.last() != '.') {
                         binding.input.text = calculate.addSymbol(operation)
-                        if (binding.input.text == "Error") {
+                        if (binding.input.text == error) {
                             binding.input.setTextColor(errorColor)
                         }
                     }
