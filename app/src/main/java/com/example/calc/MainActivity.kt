@@ -9,7 +9,7 @@ import com.example.calc.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
 
-    lateinit var binding: ActivityMainBinding
+    val binding by lazy { ActivityMainBinding.inflate(layoutInflater) }
 
     fun removeLastChar(str: String?): String? {
         return str?.replaceFirst(".$".toRegex(), "")
@@ -27,167 +27,167 @@ class MainActivity : AppCompatActivity() {
         val view = binding.root
         setContentView(view)
 
-        binding.allButtons.buttonZero.setOnClickListener(){
-            binding.allButtons.input.text=calculate.addSymbol('0')
-            binding.allButtons.input.setTextColor(normalColor)
+        binding.buttonZero.setOnClickListener(){
+            binding.input.text=calculate.addSymbol('0')
+            binding.input.setTextColor(normalColor)
         }
 
-        binding.allButtons.buttonOne.setOnClickListener(){
-            binding.allButtons.input.text=calculate.addSymbol('1')
-            binding.allButtons.input.setTextColor(normalColor)
+        binding.buttonOne.setOnClickListener(){
+            binding.input.text=calculate.addSymbol('1')
+            binding.input.setTextColor(normalColor)
         }
 
-        binding.allButtons.buttonTwo.setOnClickListener(){
-            binding.allButtons.input.text=calculate.addSymbol('2')
-            binding.allButtons.input.setTextColor(normalColor)
+        binding.buttonTwo.setOnClickListener(){
+            binding.input.text=calculate.addSymbol('2')
+            binding.input.setTextColor(normalColor)
         }
 
-        binding.allButtons.buttonThree.setOnClickListener(){
-            binding.allButtons.input.text=calculate.addSymbol('3')
-            binding.allButtons.input.setTextColor(normalColor)
+        binding.buttonThree.setOnClickListener(){
+            binding.input.text=calculate.addSymbol('3')
+            binding.input.setTextColor(normalColor)
         }
 
-        binding.allButtons.buttonFour.setOnClickListener(){
-            binding.allButtons.input.text=calculate.addSymbol('4')
-            binding.allButtons.input.setTextColor(normalColor)
+        binding.buttonFour.setOnClickListener(){
+            binding.input.text=calculate.addSymbol('4')
+            binding.input.setTextColor(normalColor)
         }
 
-        binding.allButtons.buttonFive.setOnClickListener(){
-            binding.allButtons.input.text=calculate.addSymbol('5')
-            binding.allButtons.input.setTextColor(normalColor)
+        binding.buttonFive.setOnClickListener(){
+            binding.input.text=calculate.addSymbol('5')
+            binding.input.setTextColor(normalColor)
         }
 
-        binding.allButtons.buttonSix.setOnClickListener(){
-            binding.allButtons.input.text=calculate.addSymbol('6')
-            binding.allButtons.input.setTextColor(normalColor)
+        binding.buttonSix.setOnClickListener(){
+            binding.input.text=calculate.addSymbol('6')
+            binding.input.setTextColor(normalColor)
         }
 
-        binding.allButtons.buttonSeven.setOnClickListener(){
-            binding.allButtons.input.text=calculate.addSymbol('7')
-            binding.allButtons.input.setTextColor(normalColor)
+        binding.buttonSeven.setOnClickListener(){
+            binding.input.text=calculate.addSymbol('7')
+            binding.input.setTextColor(normalColor)
         }
 
-        binding.allButtons.buttonEight.setOnClickListener(){
-            binding.allButtons.input.text=calculate.addSymbol('8')
-            binding.allButtons.input.setTextColor(normalColor)
+        binding.buttonEight.setOnClickListener(){
+            binding.input.text=calculate.addSymbol('8')
+            binding.input.setTextColor(normalColor)
         }
 
-        binding.allButtons.buttonNine.setOnClickListener(){
-            binding.allButtons.input.text=calculate.addSymbol('9')
-            binding.allButtons.input.setTextColor(normalColor)
+        binding.buttonNine.setOnClickListener(){
+            binding.input.text=calculate.addSymbol('9')
+            binding.input.setTextColor(normalColor)
         }
 
-        binding.allButtons.buttonAC.setOnClickListener() {
-            if (binding.allButtons.input.text.isNotEmpty()) {
-                binding.allButtons.input.text = calculate.clear()
+        binding.buttonAC.setOnClickListener() {
+            if (binding.input.text.isNotEmpty()) {
+                binding.input.text = calculate.clear()
             }
         }
 
-        binding.allButtons.buttonPlus.setOnClickListener() {
-            binding.allButtons.input.setTextColor(normalColor)
-            if (binding.allButtons.input.text.isNotEmpty() && binding.allButtons.input.text.last()!='.') {
-                if (binding.allButtons.input.text.last() == '+' || binding.allButtons.input.text.last() == '-' || binding.allButtons.input.text.last() == '÷' || binding.allButtons.input.text.last() == '×' || binding.allButtons.input.text.last() == '%') {
-                    binding.allButtons.input.text =
-                        removeLastChar(binding.allButtons.input.text.toString())
+        binding.buttonPlus.setOnClickListener() {
+            binding.input.setTextColor(normalColor)
+            if (binding.input.text.isNotEmpty() && binding.input.text.last()!='.') {
+                if (binding.input.text.last() == '+' || binding.input.text.last() == '-' || binding.input.text.last() == '÷' || binding.input.text.last() == '×' || binding.input.text.last() == '%') {
+                    binding.input.text =
+                        removeLastChar(binding.input.text.toString())
                 }
-                binding.allButtons.input.text=calculate.addSymbol('+')
-                if (binding.allButtons.input.text=="Error"){
-                    binding.allButtons.input.setTextColor(errorColor)
-                }
-            }
-        }
-
-        binding.allButtons.buttonMinus.setOnClickListener() {
-            binding.allButtons.input.setTextColor(normalColor)
-            if (binding.allButtons.input.text.isNotEmpty() && binding.allButtons.input.text.last()!='.') {
-                if (binding.allButtons.input.text.last() == '+' || binding.allButtons.input.text.last() == '-' || binding.allButtons.input.text.last() == '÷' || binding.allButtons.input.text.last() == '%' || binding.allButtons.input.text.last() == '×') {
-                    binding.allButtons.input.text =
-                        removeLastChar(binding.allButtons.input.text.toString())
-                }
-                binding.allButtons.input.text=calculate.addSymbol('-')
-                if (binding.allButtons.input.text=="Error"){
-                    binding.allButtons.input.setTextColor(errorColor)
+                binding.input.text=calculate.addSymbol('+')
+                if (binding.input.text=="Error"){
+                    binding.input.setTextColor(errorColor)
                 }
             }
         }
 
-        binding.allButtons.buttonMultiplication.setOnClickListener() {
-            binding.allButtons.input.setTextColor(normalColor)
-            if (binding.allButtons.input.text.isNotEmpty() && binding.allButtons.input.text.last()!='.') {
-                if (binding.allButtons.input.text.last() == '+' || binding.allButtons.input.text.last() == '-' || binding.allButtons.input.text.last() == '÷' || binding.allButtons.input.text.last() == '×' || binding.allButtons.input.text.last() == '%') {
-                    binding.allButtons.input.text =
-                        removeLastChar(binding.allButtons.input.text.toString())
+        binding.buttonMinus.setOnClickListener() {
+            binding.input.setTextColor(normalColor)
+            if (binding.input.text.isNotEmpty() && binding.input.text.last()!='.') {
+                if (binding.input.text.last() == '+' || binding.input.text.last() == '-' || binding.input.text.last() == '÷' || binding.input.text.last() == '×' || binding.input.text.last() == '%') {
+                    binding.input.text =
+                        removeLastChar(binding.input.text.toString())
                 }
-                binding.allButtons.input.text=calculate.addSymbol('×')
-                if (binding.allButtons.input.text=="Error"){
-                    binding.allButtons.input.setTextColor(errorColor)
-                }
-            }
-        }
-
-        binding.allButtons.buttonDivide.setOnClickListener() {
-            binding.allButtons.input.setTextColor(normalColor)
-            if (binding.allButtons.input.text.isNotEmpty() && binding.allButtons.input.text.last()!='.') {
-                if (binding.allButtons.input.text.last() == '+' || binding.allButtons.input.text.last() == '-' || binding.allButtons.input.text.last() == '÷' || binding.allButtons.input.text.last() == '×' || binding.allButtons.input.text.last() == '%') {
-                    binding.allButtons.input.text =
-                        removeLastChar(binding.allButtons.input.text.toString())
-                }
-                binding.allButtons.input.text=calculate.addSymbol('÷')
-                if (binding.allButtons.input.text=="Error"){
-                    binding.allButtons.input.setTextColor(errorColor)
+                binding.input.text=calculate.addSymbol('-')
+                if (binding.input.text=="Error"){
+                    binding.input.setTextColor(errorColor)
                 }
             }
         }
 
-        binding.allButtons.buttonPercent.setOnClickListener() {
-            binding.allButtons.input.setTextColor(normalColor)
-            if (binding.allButtons.input.text.isNotEmpty() && binding.allButtons.input.text.last()!='.') {
-                if (binding.allButtons.input.text.last() == '+' || binding.allButtons.input.text.last() == '-' || binding.allButtons.input.text.last() == '÷' || binding.allButtons.input.text.last() == '×' || binding.allButtons.input.text.last() == '%') {
-                    binding.allButtons.input.text =
-                        removeLastChar(binding.allButtons.input.text.toString())
+        binding.buttonMultiplication.setOnClickListener() {
+            binding.input.setTextColor(normalColor)
+            if (binding.input.text.isNotEmpty() && binding.input.text.last()!='.') {
+                if (binding.input.text.last() == '+' || binding.input.text.last() == '-' || binding.input.text.last() == '÷' || binding.input.text.last() == '×' || binding.input.text.last() == '%') {
+                    binding.input.text =
+                        removeLastChar(binding.input.text.toString())
                 }
-                binding.allButtons.input.text=calculate.addSymbol('%')
-                if (binding.allButtons.input.text=="Error"){
-                    binding.allButtons.input.setTextColor(errorColor)
-                }
-            }
-        }
-
-        binding.allButtons.buttonComma.setOnClickListener() {
-            binding.allButtons.input.setTextColor(normalColor)
-            if (binding.allButtons.input.text.isNotEmpty() && binding.allButtons.input.text.last()!='.') {
-                binding.allButtons.input.text=calculate.addSymbol(',')
-                if (binding.allButtons.input.text=="Error"){
-                    binding.allButtons.input.setTextColor(errorColor)
+                binding.input.text=calculate.addSymbol('×')
+                if (binding.input.text=="Error"){
+                    binding.input.setTextColor(errorColor)
                 }
             }
         }
 
-        binding.allButtons.buttonPlusMinus.setOnClickListener() {
-            if (binding.allButtons.input.text.isNotEmpty()) {
-                binding.allButtons.input.setTextColor(normalColor)
-                binding.allButtons.input.text=calculate.changeSign()
-                if (binding.allButtons.input.text=="Error"){
-                    binding.allButtons.input.setTextColor(errorColor)
+        binding.buttonDivide.setOnClickListener() {
+            binding.input.setTextColor(normalColor)
+            if (binding.input.text.isNotEmpty() && binding.input.text.last()!='.') {
+                if (binding.input.text.last() == '+' || binding.input.text.last() == '-' || binding.input.text.last() == '÷' || binding.input.text.last() == '×' || binding.input.text.last() == '%') {
+                    binding.input.text =
+                        removeLastChar(binding.input.text.toString())
+                }
+                binding.input.text=calculate.addSymbol('÷')
+                if (binding.input.text=="Error"){
+                    binding.input.setTextColor(errorColor)
                 }
             }
         }
 
-        binding.allButtons.backspace.setOnClickListener(){
-            binding.allButtons.input.setTextColor(normalColor)
-            if (binding.allButtons.input.text.isNotEmpty()) {
-                binding.allButtons.input.text =
+        binding.buttonPercent.setOnClickListener() {
+            binding.input.setTextColor(normalColor)
+            if (binding.input.text.isNotEmpty() && binding.input.text.last()!='.') {
+                if (binding.input.text.last() == '+' || binding.input.text.last() == '-' || binding.input.text.last() == '÷' || binding.input.text.last() == '×' || binding.input.text.last() == '%') {
+                    binding.input.text =
+                        removeLastChar(binding.input.text.toString())
+                }
+                binding.input.text=calculate.addSymbol('%')
+                if (binding.input.text=="Error"){
+                    binding.input.setTextColor(errorColor)
+                }
+            }
+        }
+
+        binding.buttonComma.setOnClickListener() {
+            binding.input.setTextColor(normalColor)
+            if (binding.input.text.isNotEmpty() && binding.input.text.last()!='.') {
+                binding.input.text=calculate.addSymbol(',')
+                if (binding.input.text=="Error"){
+                    binding.input.setTextColor(errorColor)
+                }
+            }
+        }
+
+        binding.buttonPlusMinus.setOnClickListener() {
+            if (binding.input.text.isNotEmpty()) {
+                binding.input.setTextColor(normalColor)
+                binding.input.text=calculate.changeSign()
+                if (binding.input.text=="Error"){
+                    binding.input.setTextColor(errorColor)
+                }
+            }
+        }
+
+        binding.backspace.setOnClickListener(){
+            binding.input.setTextColor(normalColor)
+            if (binding.input.text.isNotEmpty()) {
+                binding.input.text =
                     calculate.removeLastChar()
             }
         }
 
-        binding.allButtons.buttonEqual.setOnClickListener(){
+        binding.buttonEqual.setOnClickListener(){
             try{
-                if (binding.allButtons.input.text.last()!='.') {
-                    binding.allButtons.input.text = calculate.equal()
+                if (binding.input.text.last()!='.') {
+                    binding.input.text = calculate.equal()
                 }
-                if (binding.allButtons.input.text=="Error"){
-                    binding.allButtons.input.setTextColor(errorColor)
+                if (binding.input.text=="Error"){
+                    binding.input.setTextColor(errorColor)
                 }
             } catch (e:java.lang.Exception){
                 Log.d("Ошибка", "сообщение: ${e.message}")
